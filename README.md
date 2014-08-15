@@ -1,10 +1,11 @@
-## name of project
+## Asset Lister
 ### Code Badges
-build status icon
-coverage status icon
+
+[![Build Status](https://travis-ci.org/SarahMPearson/asset-lister.svg)](https://travis-ci.org/SarahMPearson/asset-lister)
+[![Coverage Status](https://coveralls.io/repos/SarahMPearson/asset-lister/badge.png)](https://coveralls.io/r/SarahMPearson/asset-lister)
 
 ### About
-write a description about your project
+An app that tracks assets and their values
 
 ### Models
 ```
