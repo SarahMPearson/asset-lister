@@ -7,7 +7,8 @@ var expect    = require('chai').expect,
     Person    = require('../../app/models/person'),
     dbConnect = require('../../app/lib/mongodb'),
     cp        = require('child_process'),
-    db        = 'template-test';
+    Mongo     = require('mongodb'),
+    db        = 'people';
 
 describe('Person', function(){
   before(function(done){
@@ -24,8 +25,13 @@ describe('Person', function(){
 
   describe('constructor', function(){
     it('should create a new Person object', function(){
-      var p = new Person();
+      var o = {name:'Bob Jones', photo:'http://www.google.com', cash:'100'},
+          p = new Person(o);
       expect(p).to.be.instanceof(Person);
+      expect(p.name).to.equal('Bob Jones');
+      expect(p.photo).to.equal('http://www.google.com');
+      expect(p.cash).to.equal(100);
+      expect(p.assets).to.have.length(0);
     });
   });
 
@@ -37,5 +43,14 @@ describe('Person', function(){
       });
     });
   });
-});
-
+  describe('#save', function(){
+    it('should save a person to the database', function(done){
+      var o = {name:'Bob Jones', photo:'http://www.google.com', cash:'100'},
+          p = new Person(o);
+      p.save(function(){
+        expect(p._id).to.be.instanceof(Mongo.ObjectID);
+        done();
+      });
+    });
+  });
+});//last bracket

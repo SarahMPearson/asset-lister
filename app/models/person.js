@@ -1,6 +1,10 @@
 'use strict';
 
-function Person(){
+function Person(object){
+  this.name       = object.name;
+  this.photo      = object.photo;
+  this.cash       = parseFloat(object.cash);
+  this.assets     = [];
 }
 
 Object.defineProperty(Person, 'collection', {
@@ -9,6 +13,10 @@ Object.defineProperty(Person, 'collection', {
 
 Person.all = function(cb){
   Person.collection.find().toArray(cb);
+};
+
+Person.prototype.save = function(cb){
+  Person.collection.save(this, cb);
 };
 
 module.exports = Person;
