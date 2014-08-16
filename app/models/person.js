@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('lodash');
+
 function Person(object){
   this.name       = object.name;
   this.photo      = object.photo;
@@ -12,7 +14,12 @@ Object.defineProperty(Person, 'collection', {
 });
 
 Person.all = function(cb){
-  Person.collection.find().toArray(cb);
+  Person.collection.find().toArray(function(err, objects){
+    var people = objects.map(function(object){
+      return changePrototype(object);
+    });
+    cb(people);
+  });
 };
 
 Person.prototype.save = function(cb){
@@ -21,3 +28,7 @@ Person.prototype.save = function(cb){
 
 module.exports = Person;
 
+//PRIVATE FUNCTIONS//
+function changePrototype(object){
+  return _.create(Person.prototype, object);
+}

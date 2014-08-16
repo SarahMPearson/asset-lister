@@ -2,6 +2,13 @@ extends ../shared/template
 block content
   h2 Create a Person
 
+  form(method='post', action='/people')
+    input(name='name', type='text', placeholder='John Hancock', autofocus=true)
+    input(name='photo', type='text', placeholder='url')
+    input(name='cash', type='number', placeholder='100.00')
+    button Create
+
+
 block scripts
   script(src='/js/user/home.js')
 

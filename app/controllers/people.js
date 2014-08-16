@@ -7,8 +7,15 @@ exports.init = function(req, res){
 };
 
 exports.create = function(req, res){
-  Person.save(req.body, function(){
+  var person = new Person(req.body);
+  person.save(function(){
     res.redirect('/people');
+  });
+};
+
+exports.index = function(req, res){
+  Person.all(function(people){
+    res.render('people/index', {people:people});
   });
 };
 
