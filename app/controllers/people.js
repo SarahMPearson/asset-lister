@@ -24,3 +24,9 @@ exports.show = function(req, res){
     res.render('people/show', {person:people});
   });
 };
+
+exports.assets = function(req, res){
+  Person.findById(req.params.id, function(people){
+    res.render('people/assets', {person:people});
+  });
+};

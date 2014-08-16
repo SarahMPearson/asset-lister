@@ -1,7 +1,7 @@
 extends ../shared/template
 block content
   h2= person.name
-  a(href='/people/#{person._id}/assets/name') 
+  a(href='/people/#{person._id}/assets/new') 
     button Add Asset
   #photo
     img(src='#{person.photo}')
