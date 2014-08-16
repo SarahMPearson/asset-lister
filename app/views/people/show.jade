@@ -19,6 +19,8 @@ block content
           td= asset.name
           td: img(src='#{asset.photo}')
           td $#{asset.value}
+          td= asset.count
+          td $#{asset.count * asset.value}
 
 
 block scripts
