@@ -30,3 +30,11 @@ exports.assets = function(req, res){
     res.render('people/assets', {person:people});
   });
 };
+
+exports.addAssets = function(req, res){
+  Person.findById(req.params.id, function(person){
+    person.addAsset(req.body, function(){
+      res.redirect('/people/' + req.params.id);
+    });
+  });
+};

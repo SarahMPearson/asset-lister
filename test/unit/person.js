@@ -53,4 +53,15 @@ describe('Person', function(){
       });
     });
   });
+
+  describe('#addAsset', function(){
+    it('should add an asset to a given person', function(done){
+      Person.findById('000000000000000000000001', function(person){
+        person.addAsset({name: 'Boat', photo: 'http://cdn.ubergizmo.com/photos/2009/1/guitar-boat.jpg', value:'50000', count: '1'}, function(){
+          expect(person.assets.length).to.equal(3);
+          done();
+        });
+      });
+    });
+  });
 });//last bracket
