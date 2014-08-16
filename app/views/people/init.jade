@@ -3,10 +3,16 @@ block content
   h2 Create a Person
 
   form(method='post', action='/people')
+    label Name
     input(name='name', type='text', placeholder='John Hancock', autofocus=true)
+    br
+    label Photo
     input(name='photo', type='text', placeholder='url')
+    br
+    label Cash
     input(name='cash', type='number', placeholder='100.00')
-    button Create
+    br
+    button.addPerson#addPerson Create
 
 
 block scripts

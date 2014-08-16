@@ -1,6 +1,6 @@
 {
   "_id":{"$oid":"000000000000000000000001"},
-  "name":"Indian Jones",
+  "name":"Indiana Jones",
   "photo":"http://www.moviecricket.com/wp-content/uploads/2013/12/indy.jpeg",
   "cash":12834.45,
   "assets":[
@@ -18,7 +18,7 @@
 {
   "_id":{"$oid":"000000000000000000000002"},
   "name":"Jodie Foster",
-  "photo":"http://ia.media-imdb.com/images/M/MV5BMTM3MjgyOTQwNF5BMl5BanBnXkFtZTcwMDczMzEwNA@@._V1_SY317_CR1,0,214,317_AL_.jpg",
+  "photo":"http://www.pressacademy.com/wp-content/uploads/2011/11/JodieFosterPickford19981-e1321427162568.jpg",
   "cash":40000.00,
   "assets":[
         {"name": "bike",

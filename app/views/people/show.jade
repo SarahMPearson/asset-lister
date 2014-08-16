@@ -1,6 +1,18 @@
 extends ../shared/template
 block content
-  h2 Home Page!
+  h2= person.name
+  a(href='/people/#{person._id}/assets/name') 
+    button Add Asset
+  #photo
+    img(src='#{person.photo}')
+  .cash $#{person.cash}
+  table
+    thead
+      th Name
+      th Photo
+      th Value
+      th Count
+      th Total
 
 block scripts
   script(src='/js/user/home.js')

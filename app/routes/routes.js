@@ -16,6 +16,8 @@ module.exports = function(app, express){
   app.get('/people/new', people.init);
   app.post('/people', people.create);
   app.get('/people', people.index);
+  app.get('/people/:id', people.show);
+  app.get('/people/:id/assets/new', people.assets);
 
   console.log('Routes Loaded');
 };

@@ -14,8 +14,13 @@ exports.create = function(req, res){
 };
 
 exports.index = function(req, res){
-  Person.all(function(people){
-    res.render('people/index', {people:people});
+  Person.all(function(dog){
+    res.render('people/index', {people:dog});
   });
 };
 
+exports.show = function(req, res){
+  Person.findById(req.params.id, function(people){
+    res.render('people/show', {person:people});
+  });
+};

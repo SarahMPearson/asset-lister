@@ -11,10 +11,10 @@ block content
     tbody
     each person in people
       tr
-        td= person.name
+        td: a(href='/people/#{person._id}')= person.name
         td: img(src='#{person.photo}')
-        td= person.cash
-        td= person.assets
+        td $#{person.cash}
+        td $ person.assets
 
 block scripts
   script(src='/js/user/home.js')

@@ -8,7 +8,7 @@ var expect    = require('chai').expect,
     dbConnect = require('../../app/lib/mongodb'),
     cp        = require('child_process'),
     Mongo     = require('mongodb'),
-    db        = 'people';
+    db        = 'people-test';
 
 describe('Person', function(){
   before(function(done){
@@ -37,7 +37,7 @@ describe('Person', function(){
 
   describe('.all', function(){
     it('should get all people', function(done){
-      Person.all(function(err, people){
+      Person.all(function(people){
         expect(people).to.have.length(2);
         done();
       });

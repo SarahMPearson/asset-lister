@@ -1,6 +1,7 @@
 'use strict';
 
-var _ = require('lodash');
+var _ = require('lodash'),
+    Mongo = require('mongodb');
 
 function Person(object){
   this.name       = object.name;
@@ -24,6 +25,19 @@ Person.all = function(cb){
 
 Person.prototype.save = function(cb){
   Person.collection.save(this, cb);
+};
+
+Person.findById = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  Person.collection.findOne({_id:_id}, function(err, object){
+    var person = changePrototype(object);
+    cb(person);
+  });
+};
+
+Person.prototype.addAsset = function(object){
+  var asset = {name:object.name, photo: object.photo, value: parseFloat(object.value)};
+  this.assets.push(asset);
 };
 
 module.exports = Person;
