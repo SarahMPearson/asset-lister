@@ -4,9 +4,9 @@ block content
   form(method='post', action='/people/#{person._id}')
     input(name='name', type='text', placeholder='Couch', autofocus=true)
     input(name='photo', type='text', placeholder='url')
-    input(name='value', type='number')
-    input(name='count', type='number')
-    button Add Asset
+    input(name='value', type='number', placeholder='value')
+    input(name='count', type='number', placeholder='count')
+    button#addAsset Add Asset
 
 block scripts
   script(src='/js/user/home.js')

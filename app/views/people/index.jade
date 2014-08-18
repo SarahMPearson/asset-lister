@@ -14,7 +14,10 @@ block content
         td: a(href='/people/#{person._id}')= person.name
         td: img(src='#{person.photo}')
         td $#{person.cash}
-        td $ person.assets
+          each asset in person.assets
+           td.asset
+             ul
+              li= asset.name
 
 block scripts
   script(src='/js/user/home.js')

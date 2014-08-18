@@ -2,10 +2,12 @@ extends ../shared/template
 block content
   h2= person.name
   a(href='/people/#{person._id}/assets/new') 
-    button Add Asset
+    button#asset Add Asset
   #photo
     img(src='#{person.photo}')
-  .cash $#{person.cash}
+  .cash Cash: $#{person.cash}
+  .assets Assets: $
+  .total Total: $
   table
     thead
       th Name
